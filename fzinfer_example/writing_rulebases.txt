@@ -1,0 +1,74 @@
+
+  Here is how rulebases are specified for the use with the accompanying
+  p-functions.
+
+  Input and output identifiers and fuzzy set labels for each input and
+  output must be defined. If-Then rules can contain logical operators
+  AND and NOT (NOT is applicable only in rule premises). For a sample
+  rule-base see the RULEBASE.RB file.
+
+  Rule base items are:
+        directives             - #input, #output, #rules, #mf (optional)
+        keywords               - If, Then, Is, And, Not, comma (,)
+        rule terminator        - ;
+        input and output names - user-defined identifiers
+        fuzzy set labels       - user-defined identifiers
+        rule weights           - real numbers
+        membership fcns defs   - five-tuples of real numbers
+        singletons             - alternatively, rule conclusions can be
+                                 defined as singletons, i.e. real numbers.
+                                 In such case, no labels are defined after
+                                 the #output directive.
+
+  Identifiers (input and output names and fuzzy set labels) can consist
+  of multiple words (e.g. error change) but cannot contain keywords,
+  directives and semicolon. Identifiers are case-sensitive, keywords and
+  directives case-insensitive. Input and output names follow immediately
+  after their respective directives. Each fuzzy set label must be written
+  on a separate line, i.e.:
+                         #input error change
+                                Big Positive
+                                Medium Positive
+                                     ...
+
+  A rule is a text fragment beginning with "If" and ending with a
+  semicolon (;). A rule must begin on a new line and can span
+  multiple lines. Every rule can have a weight which is a real number
+  preceding the rule on the same or separate line. Example:
+
+        0.85 IF error is POSITIVE BIG and output is POSITIVE
+             THEN control is NEGATIVE BIG;
+
+  Rules can also have multiple conclusions, such as:
+
+        0.85 IF error is POSITIVE BIG and output is POSITIVE
+             THEN lefttorque is NEGATIVE BIG, righttorque is MEDIUM;
+
+  (see RULEBASE.RB for an example)
+
+  Membership functions definitions can be placed anywhere in the text.
+  Every membership function is defined by a five-tuple [type p1 p2 p3 p4].
+  For details on types and parameters see below. Example:
+
+        #input error change
+                Big Positive    #mf 1 0.0 0.8 1.0 1.0
+                Medium Positive #mf 1 0.0 0.4 0.5 0.9
+
+  The number in the first column determines the membership function type:
+
+        0 ... one everywhere,        1 ... Trapezoidal
+        2 ... Exponential,           3 ... Sigmoidal
+
+  The remaining four columns define the membership function position
+  and shape. If we denote them [p1 p2 p3 p4] then membership degree Ax
+  of numbers x is as follows:
+
+        Ax = 0                  for x <= p1 or  x >= p2
+             1                  for x >= p2 and x <= p3
+             in (0,1)           for x >  p1 and x <  p2 or
+                                    x >  p3 and x <  p4
+
+  The shape of the membership function curve for x between p1 and p2
+  and between p3 and p4 is determined by membership function type,
+  i.e. trapezoidal, exponential and sigmoidal. Singletons can be defined
+  by using p1=p2=p3=p4 (see the RULEBASE.RB example).

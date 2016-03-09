@@ -1,0 +1,592 @@
+Model {
+  Name			  "fzinfer_example_r13"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ExecutionOrder	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Wed Feb  2 17:17:15 2005"
+  Creator		  "lbusoniu"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "lbusoniu"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Wed Mar  8 17:10:23 2006"
+  ModelVersionFormat	  "1.%<AutoIncrement:52>"
+  ConfigurationManager	  "none"
+  SimParamPage		  "Solver"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock off
+  BufferReuse		  on
+  RTWExpressionDepthLimit 5
+  SimulationMode	  "normal"
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "4"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  ".25"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  on
+  ZeroCross		  on
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  RTWOptions		  "-aEnforceIntegerDowncast=1 -aFoldNonRolledExpr=1 -a"
+"InlineInvariantSignals=0 -aInlineParameters=0 -aLocalBlockOutputs=1 -aRollThr"
+"eshold=5 -aZeroInternalMemoryAtStartup=1 -aZeroExternalMemoryAtStartup=1 -aIn"
+"itFltsAndDblsToZero=1 -aGenerateReport=0 -aGenCodeOnly=0 -aRTWVerbose=1 -aInc"
+"ludeHyperlinkInReport=0 -aLaunchReport=0 -aForceParamTrailComments=0 -aGenera"
+"teComments=1 -aIgnoreCustomStorageClasses=1 -aIncHierarchyInIds=0 -aMaxRTWIdL"
+"en=31 -aShowEliminatedStatements=0 -aPrefixModelToSubsysFcnNames=1 -aIncDataT"
+"ypeInIds=0 -aInsertBlockDesc=0 -aSimulinkBlockComments=1 -aInlinedPrmAccess="
+"\"Literals\"  -aSuppressErrorStatus=0 -aModelReferenceCompliant=1 -aSupportNo"
+"nInlinedSFcns=1 -aSupportContinuousTime=1 -aSupportComplex=1 -aSupportNonFini"
+"te=1 -aSupportAbsoluteTime=1 -aTargetFcnLib=\"ansi_tfl_tmw.mat\" -aMultiInsta"
+"nceERTCode=0 -aLogVarNameModifier=\"rt_\" -aIsPILTarget=0 -aCombineOutputUpda"
+"teFcns=0 -aGenerateASAP2=0 -aGenerateSampleERTMain=0 -aGenerateFullHeader=1 -"
+"aUtilityFuncGeneration=\"Auto\" -aIncludeFileDelimiter=\"Auto\" -aIncludeMdlT"
+"erminateFcn=1 -aPurelyIntegerCode=0 -aERTCustomFileBanners=0 -aRTWCAPIStates="
+"0 -aRTWCAPIParams=0 -aRTWCAPISignals=0 -aMatFileLogging=1 -aGenFloatMathFcnCa"
+"lls=\"ANSI_C\" -aExtModeMexFile=\"ext_comm\" -aExtModeTransport=0 -aExtModeSt"
+"aticAllocSize=1000000 -aExtModeTesting=0 -aExtModeStaticAlloc=0 -aExtMode=0  "
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Clock
+      DisplayTime	      off
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "sfix(16)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      ShowAdditionalParam     off
+      LatchInput	      off
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Scope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      PortCounts	      "[]"
+      SFunctionModules	      "''"
+    }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "fzinfer_example_r13"
+    Location		    [62, 111, 576, 599]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      Ports		      [1, 2]
+      Position		      [345, 133, 350, 182]
+      BackgroundColor	      "black"
+      Outputs		      "2"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Fuzzy Inference"
+      Ports		      [1, 1]
+      Position		      [200, 144, 310, 176]
+      NamePlacement	      "alternate"
+      ShowName		      off
+      TreatAsAtomicUnit	      off
+      MaskType		      "Fuzzy inference block"
+      MaskDescription	      "MIN-MAX inference with \n fuzzy means defuzzifi"
+"cation"
+      MaskHelp		      "Fuzzy inference block can be used as a direct f"
+"uzzy controller or as a fuzzy supervisor. For details on dialog parameters se"
+"e INFER."
+      MaskPromptString	      "Rule matrix: |Membership functions matrix: |Def"
+"ault output:"
+      MaskStyleString	      "edit,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskToolTipString	      "on,on,on"
+      MaskVarAliasString      ",,"
+      MaskVariables	      "rls=@1;mfs=@2;def=@3;"
+      MaskDisplay	      "disp('Fuzzy Inference')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "rls|mfs|[1 3]"
+      System {
+	Name			"Fuzzy Inference"
+	Location		[680, 412, 993, 610]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [20, 80, 40, 100]
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  "Fuzzy inference"
+	  Ports			  [1, 1]
+	  Position		  [80, 73, 225, 107]
+	  ShowName		  off
+	  FunctionName		  "sfuninf"
+	  Parameters		  "rls, mfs, def"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [265, 80, 285, 100]
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Fuzzy inference"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Fuzzy inference"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "LIst rules"
+      Ports		      []
+      Position		      [185, 14, 279, 45]
+      Orientation	      "down"
+      DropShadow	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      OpenFcn		      "disp(rls2txt(rls, mfs, inputs, outputs, nlab, l"
+"abels));"
+      TreatAsAtomicUnit	      off
+      MaskType		      " "
+      MaskDisplay	      "disp('List Fuzzy Rules')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"LIst rules"
+	Location		[-10, 380, 117, 533]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Ramp"
+      Ports		      [0, 1]
+      Position		      [70, 145, 100, 175]
+      SourceBlock	      "simulink/Sources/Ramp"
+      SourceType	      "Ramp"
+      slope		      "1"
+      start		      "0"
+      X0		      "0"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Rules editor1"
+      Ports		      []
+      Position		      [20, 14, 155, 45]
+      Orientation	      "down"
+      DropShadow	      on
+      NamePlacement	      "alternate"
+      ShowName		      off
+      OpenFcn		      "eval(['[rls, mfs, inputs, outputs, nlab, labels"
+"] = txt2rls(''rulebase.rb'');']);\n                                          "
+"                                      "
+      TreatAsAtomicUnit	      off
+      MaskType		      "Rule-base editor"
+      MaskDisplay	      "disp('Compile Rulebase')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Rules editor1"
+	Location		[4, 380, 131, 533]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "in"
+      Ports		      [1]
+      Position		      [145, 100, 175, 130]
+      Orientation	      "up"
+      NamePlacement	      "alternate"
+      Location		      [585, 45, 1013, 274]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      TimeRange		      "4"
+      YMin		      "0"
+      YMax		      "4"
+      SaveName		      "ScopeData2"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "out1"
+      Ports		      [1]
+      Position		      [390, 119, 420, 151]
+      NamePlacement	      "alternate"
+      Location		      [585, 329, 1015, 550]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      TimeRange		      "4"
+      YMin		      "1"
+      YMax		      "4"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "out2"
+      Ports		      [1]
+      Position		      [390, 164, 420, 196]
+      Location		      [585, 488, 1015, 710]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      TimeRange		      "4"
+      YMin		      "1"
+      YMax		      "3"
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+    }
+    Line {
+      SrcBlock		      "Fuzzy Inference"
+      SrcPort		      1
+      DstBlock		      "Demux"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      Points		      [10, 0; 0, -10]
+      DstBlock		      "out1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      Points		      [10, 0; 0, 10]
+      DstBlock		      "out2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Ramp"
+      SrcPort		      1
+      Points		      [55, 0]
+      Branch {
+	DstBlock		"Fuzzy Inference"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"in"
+	DstPort			1
+      }
+    }
+    Annotation {
+      Name		      "This is an example of using fuzzy inference in "
+"a Simulink model\n\nIn this case, the rule base specifies one input and two o"
+"utputs.\nUse the Compile button to load the rule base, and List to verify\nit"
+" has been loaded correctly. Note that you need to edit the \nCompile block Op"
+"enFcn callback (via Block Properties)\nif you desire to change the name of th"
+"e rulebase file."
+      Position		      [222, 351]
+    }
+  }
+}

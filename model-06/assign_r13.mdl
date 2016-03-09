@@ -1,0 +1,469 @@
+Model {
+  Name			  "assign_r13"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  SortedOrder		  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  CloseFcn		  "rtwprivate ssgensfun ModelCloseRequest nlgentpl"
+  Created		  "Mon Jan 31 17:11:02 2005"
+  Creator		  "lbusoniu"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Administrator"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Mar 01 19:24:26 2007"
+  ModelVersionFormat	  "1.%<AutoIncrement:56>"
+  ConfigurationManager	  "None"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock off
+  BufferReuse		  off
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "110"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  off
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  off
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  off
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  RTWOptions		  "-aEnforceIntegerDowncast=1 -aFoldNonRolledExpr=1 -a"
+"InlineInvariantSignals=0 -aInlineParameters=0 -aLocalBlockOutputs=0 -aRollThr"
+"eshold=5 -aGenerateReport=0 -aGenCodeOnly=0 -aRTWVerbose=1 -aIncludeHyperlink"
+"InReport=0 -aLaunchReport=0 -aForceParamTrailComments=0 -aGenerateComments=1 "
+"-aIgnoreCustomStorageClasses=1 -aIncHierarchyInIds=0 -aMaxRTWIdLen=31 -aShowE"
+"liminatedStatements=0 -aPrefixModelToSubsysFcnNames=1 -aIncDataTypeInIds=0 -a"
+"InsertBlockDesc=0 -aSimulinkBlockComments=1 -aInlinedPrmAccess=\"Literals\"  "
+"-aSuppressErrorStatus=0 -aModelReferenceCompliant=1 -aSupportNonInlinedSFcns="
+"1 -aSupportContinuousTime=1 -aSupportComplex=1 -aSupportNonFinite=1 -aSupport"
+"AbsoluteTime=1 -aTargetPreCompLibLocation=\"\" -aTargetLibSuffix=\"\" -aTarge"
+"tFcnLib=\"ansi_tfl_tmw.mat\" -aMultiInstanceERTCode=0 -aLogVarNameModifier=\""
+"rt_\" -aERTFirstTimeCompliant=0 -aIsPILTarget=0 -aCombineOutputUpdateFcns=0 -"
+"aGenerateASAP2=0 -aGenerateTestInterfaces=0 -aGenerateSampleERTMain=0 -aGener"
+"ateFullHeader=1 -aUtilityFuncGeneration=\"Auto\" -aIncludeFileDelimiter=\"Aut"
+"o\" -aIncludeERTFirstTime=1 -aIncludeMdlTerminateFcn=1 -aPurelyIntegerCode=0 "
+"-aERTCustomFileBanners=0 -aRTWCAPIStates=0 -aRTWCAPIParams=0 -aRTWCAPISignals"
+"=0 -aMatFileLogging=1 -aGenFloatMathFcnCalls=\"ANSI_C\" -aExtModeMexFile=\"ex"
+"t_comm\" -aExtModeTransport=0 -aExtModeStaticAllocSize=1000000 -aExtModeTesti"
+"ng=0 -aExtModeStaticAlloc=0 -aExtMode=0  "
+  SimulationMode	  "normal"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Clock
+      DisplayTime	      off
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "sfix(16)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "2^0"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+}
+    Block {
+      BlockType		      Lookup
+      InputValues	      "[-4:5]"
+      OutputValues	      " rand(1,10)-0.5"
+      LookUpMeth	      "Interpolation-Extrapolation"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Permissions	      "ReadWrite"
+      TreatAsAtomicUnit	      off
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "tp242571"
+    Location		    [4, 74, 628, 493]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Scope
+      Name		      "Command"
+      Ports		      [1]
+      Position		      [305, 120, 335, 150]
+      FontName		      "Times New Roman"
+      FontSize		      12
+      Floating		      off
+      Location		      [638, 448, 1200, 720]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "120"
+      YMin		      "-0.05"
+      YMax		      "0.15"
+      SaveName		      "u"
+      DataFormat	      "Array"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [2, 1]
+      Position		      [510, 99, 515, 146]
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "P Controller"
+      Position		      [225, 186, 260, 214]
+      Gain		      ".04"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Ref+Output"
+      Ports		      [1]
+      Position		      [545, 110, 575, 140]
+      NamePlacement	      "alternate"
+      FontName		      "Times New Roman"
+      FontSize		      12
+      Floating		      off
+      Location		      [638, 49, 1199, 397]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "120"
+      YMin		      "0"
+      SaveName		      "u2"
+      DataFormat	      "Array"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+
+
+      BlockType		      Reference
+      Name		      "Repeating\nSequence"
+      Ports		      [0, 1]
+      Position		      [45, 185, 75, 215]
+      NamePlacement	      "alternate"
+	SourceBlock	"simulink/Sources/Repeating\nSequence"
+      SourceType	      "Repeating table"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      rep_seq_t		      "[0 15 15.5 30 30.5 45 45.5 60 60.5 75 75.5 90 9"
+"1.5 111]"
+      rep_seq_y		      "[1 1 .5 .5 2 2 1.5 1.5 3 3 2.5 2.5 4 4]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      Name		      "S-Nonlin Sys"
+      Ports		      [1, 1]
+      Position		      [320, 185, 380, 215]
+      FunctionName	      "sfun_nlsys"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum1"
+      Ports		      [2, 1]
+      Position		      [170, 190, 190, 210]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|+-"
+      InputSameDT	      off
+      OutDataTypeMode	      "Inherit via internal rule"
+    }
+    Line {
+      SrcBlock		      "Sum1"
+      SrcPort		      1
+      DstBlock		      "P Controller"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "S-Nonlin Sys"
+      SrcPort		      1
+      Points		      [0, 0; 65, 0]
+      Branch {
+	Labels			[2, 0]
+	Points			[0, 80; -270, 0]
+	DstBlock		"Sum1"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -65]
+	DstBlock		"Mux1"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "P Controller"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	DstBlock		"S-Nonlin Sys"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -65]
+	DstBlock		"Command"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      DstBlock		      "Ref+Output"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Repeating\nSequence"
+      SrcPort		      1
+      Points		      [55, 0]
+      Branch {
+	DstBlock		"Sum1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -90]
+	DstBlock		"Mux1"
+	DstPort			1
+      }
+    }
+    Annotation {
+      Name		      "REQUIREMENTS\nDesign a fuzzy supervisor for the"
+" linear controller, such that \nthe settling time is maintained under 10 seco"
+"nds and the overshoot under 25% \nfor a setpoint range between 1 and 4"
+      Position		      [197, 36]
+    }
+  }
+}
