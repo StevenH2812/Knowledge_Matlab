@@ -8,17 +8,19 @@ cornerdef = input('Would you like to automatically generate membership functions
 n = input('How many membership functions should there be? [0-n]: ');
 corners = {};
 if cornerdef=='n'
+    low = input('Please specify the lower domain bound as a number: ');
+    up = input('Please specify the upper domain bound as a number: ');
     disp('The membership functions will be trapezoidal in shape');
     disp('Please specify the four corner points of the trapezoid');
-    disp(' ');
-    disp(' ');
     for member = 1:n
-        for corner = 1:4
-            li = ['one','two','three','four'];
-            st = li(corner);
-            message = char(strcat('Please specify member',{' '},int2str(member),{' '},'corner',{' '},int2str(corner),{' '},'as a number:',{' '}));
-            corners{member}.st = input(message);
-        end
+        message = char(strcat('Please specify member',{' '},int2str(member),{' '},'corner 1 as a number:',{' '}));
+        corners{member}.one = input(message);
+        message = char(strcat('Please specify member',{' '},int2str(member),{' '},'corner 2 as a number:',{' '}));
+        corners{member}.two = input(message);
+        message = char(strcat('Please specify member',{' '},int2str(member),{' '},'corner 3 as a number:',{' '}));
+        corners{member}.three = input(message);
+        message = char(strcat('Please specify member',{' '},int2str(member),{' '},'corner 4 as a number:',{' '}));
+        corners{member}.four = input(message);        
     end
 else
     low = input('Please specify the lower domain bound as a number: ');
@@ -29,7 +31,7 @@ end
 
 
 %enter the required datapoints and the xrange
-datapoints = 100;
+datapoints = 400;
 xrange = [low,up];
 
 xpoints=xrange(1):(xrange(2)-xrange(1))/(datapoints-1):xrange(2);
