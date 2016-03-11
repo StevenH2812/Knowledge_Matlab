@@ -3,15 +3,8 @@ syms x;
 
 %% Define the fuzzy model and ask for which function to approximate
 
-%----------DEFINE THE CONSEQUENT MODEL HERE USING x AS VARIABLE------%
-%SINGLETON MODEL WOULD JUST BE [1]
-%LINEAR TAKAGI SUGENO WOULD BE [x,1]
-%ANY OTHER MODEL (OF ANY ORDER) IS ALLOWED AS WELL (E.G. [sin(x),x^2,1])
+%------------DEFINE THE 
 
-TSmodel = [x,1];
-
-
-%-------INTERACTION TO DEFINE THE REST OF THE FUZZY PROBLEM----------%
 disp('Hello, in this set of questions you can define the Fuzzy problem');
 cornerdef = input('Would you like to automatically generate membership functions? [y/n]: ','s');
 n = input('How many membership functions should there be? [0-n]: ');
@@ -40,7 +33,7 @@ end
 %target function to approximate
 fun = input('Please specify the function to approximate using x as variable: ');
 fun = simplify(sym(fun));
-disp('Computing the fuzzy approximation to the function...');
+
 
 
 
@@ -62,7 +55,13 @@ ypoints = g(xpoints);
 
 syms x;
 
+%Create Takagi-Sugeno model structure using variable x
+%TSmodel = [x^2,sin(x),1];
+
+
 A = regressionMatrix(datapoints,corners,TSmodel,xpoints,ypoints);
+
+%pars = ((A'*A)^-1)*A'*ypoints';
 
 pars = (A\ypoints')';
 
