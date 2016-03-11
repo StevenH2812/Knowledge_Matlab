@@ -1,0 +1,37 @@
+[System]
+Name='derivative'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input'
+Range=[0 4]
+NumMFs=4
+MF1='low':'trimf',[-1.6 0 1]
+MF2='high':'trimf',[2.83068783068783 4 5.6]
+MF3='med1':'gaussmf',[0.463711727892702 1.29]
+MF4='med2':'gaussmf',[0.292364425009199 2.54]
+
+[Output1]
+Name='Dgain'
+Range=[0 0.1]
+NumMFs=4
+MF1='low':'trimf',[-0.04 0 0.04]
+MF2='high':'trimf',[0.06 0.1 0.14]
+MF3='med1':'gaussmf',[0.00775534160284159 0.0328]
+MF4='med2':'gaussmf',[0.0130939357760806 0.0592]
+
+[Rules]
+1, 1 (1) : 1
+3, 1 (1) : 1
+3, 3 (0.5) : 1
+4, 4 (0.5) : 1
+2, 1 (0.5) : 1

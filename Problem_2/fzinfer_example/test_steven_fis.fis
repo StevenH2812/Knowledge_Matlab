@@ -1,0 +1,33 @@
+[System]
+Name='test_steven_fis'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input'
+Range=[0 4]
+NumMFs=3
+MF1='low':'trimf',[-1.6 0 1.582]
+MF2='med':'trimf',[0.4 1.942 3.6]
+MF3='high':'trimf',[2.4 4 5.6]
+
+[Output1]
+Name='output'
+Range=[0 4]
+NumMFs=3
+MF1='low':'trimf',[-1.6 0 1.6]
+MF2='med':'trimf',[0.4 1.952 3.6]
+MF3='high':'trimf',[2.4 4 5.6]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1
