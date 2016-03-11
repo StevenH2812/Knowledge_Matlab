@@ -11,9 +11,9 @@
     H   #mf     1       3       3       3       3
 
 #output out2
-    L   #mf     1       1       1       1       1
-    M   #mf     1       2       2       2       2
-    H   #mf     1       3       3       3       3
+    L   #mf     1       1       2       3       4
+    M   #mf     1       0       0       0       0
+    H   #mf     1       0       0       0       0
         
 #rules
  If in is L then out1 is H, out2 is L;
