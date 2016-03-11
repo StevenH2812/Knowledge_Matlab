@@ -8,7 +8,7 @@ for rows = 1:datapoints
     counter = 1;
     for cols = 1:length(TSmodel):length(TSmodel)*length(corners) 
         x = xpoints(rows);
-        A(rows,cols:cols+length(TSmodel)-1) = eval(evaluateGamma(counter,corners,xpoints(rows))*TSmodel);
+        A(rows,cols:cols+length(TSmodel)-1) = subs(evaluateGamma(counter,corners,xpoints(rows))*TSmodel,x);
         counter = counter +1;
     end
 end
