@@ -4,22 +4,29 @@
 %
 % One very good description will eventually be given here!
 % Check http://nl.mathworks.com/help/nnet/gs/neural-network-time-series-prediction-and-modeling.html
-% 
-% Developed by Nikhil Potdar
+%   
+% PROPERTIES
 %
+% @author:  Nikhil Potdar and Steven van der Helm
+% @date:    11/03/2016    
+% @subject: KBCS SC4081 MATLAB
+%
+
+clear all; close all; clc; 
+
 %% 
 % # USER CONFIGURATION
 
 % Mode 
-ota_p = false;               % true: One-step ahead predicition / false: simulation
+ota_p = true;               % true: One-step ahead predicition / false: simulation
     
 % Neural Network
 inputDelays = 1:2;          % Number of delays to use
 feedbackDelays = 1:2;       % Number of feedback delays to use
-hiddenLayersize = 8;        % Number of NN hidden layers
+hiddenLayersize = 2;        % Number of NN hidden layers
 
 % Data set 
-trainfactor = 0.8;          % Percentage of id data set for training, remaining for MATLAB validation
+trainfactor = 0.75;          % Percentage of id data set for training, remaining for MATLAB validation of overfitting
 
 % S/W Performance Boost
 USE_PARALLEL = 'no';        % 'yes': Possibly faster for higher number of layers/delays / 'no': disable
@@ -45,8 +52,8 @@ id_ts = iddata.Ts;
 
 % Validation data set
 
-val_u = valdata.u;
-val_y = valdata.y;
+val_u = (valdata.u);
+val_y = (valdata.y);
 val_ts = valdata.Ts;
 
 % Combine data set and use index splitting later
@@ -59,9 +66,12 @@ outputData = [id_y; val_y].';
 % dynamic system
 
 net = narxnet(inputDelays,feedbackDelays,hiddenLayersize);
+
+modifier = 0;
 if ota_p
     net = removedelay(net);         % Sets to one-step ahead predicition 
     net.name = [net.name ' - Predict One Step Ahead'];
+    modifier = 1;
 end
 
 %net = init(net);            % Initialises the neural net
@@ -106,7 +116,7 @@ test_performance = perform(net, data_out, test_output);
 % fixme: CHECK THE INDICES FOR RMS CALCULATIONS
 
 test_diff_error = cell2mat(gsubtract(data_out, test_output));
-test_rms = rms(test_diff_error(test_low:end));
+test_rms = rms(test_diff_error(test_low:(end-modifier)));
 
 disp(['Root-mean square error of test data set: ', num2str(test_rms)]);
 
@@ -114,11 +124,13 @@ disp(['Root-mean square error of test data set: ', num2str(test_rms)]);
 
 % figure, plotresponse(targets,outputs)
 
-time_series = (1:numel(data_out(test_low:end)))*val_ts;
 data_out_plt = (cell2mat(data_out));
 data_out_plt = data_out_plt(test_low:end);
 test_output_plt = (cell2mat(test_output));
 test_output_plt = test_output_plt(test_low:end);
+
+time_series = ((numel(val_y)-numel(test_output_plt)+1):numel(val_y))*val_ts;    % Moving time-series based on number of Delays included as data set is shifted for initiation 
+
 
 figure(1);
 p1 = plot(time_series, data_out_plt,'--', time_series, test_output_plt);
