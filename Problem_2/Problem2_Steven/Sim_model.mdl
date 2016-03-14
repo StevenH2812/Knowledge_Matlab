@@ -5,9 +5,19 @@ Model {
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
-    NumRootOutports	    0
+    NumRootOutports	    2
+    Outport {
+      Name		      "Out1"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+    }
+    Outport {
+      Name		      "Out2"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.62"
+    ComputedModelVersion    "1.66"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,7 +40,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [31.0, 82.0, 1932.0, 913.0]
+      Location		      [1.0, 79.0, 1932.0, 913.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -39,7 +49,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -54,7 +64,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1882.0, 731.0]
+	Extents			[1882.0, 739.0]
 	ZoomFactor		[1.14]
 	Offset			[-2.2807017543859729, -3.2807017543859729]
       }
@@ -64,11 +74,11 @@ Model {
   Creator		  "lbusoniu"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Nikhil"
+  LastModifiedBy	  "Steven"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 14 16:39:42 2016"
-  RTWModifiedTimeStamp	  379874292
-  ModelVersionFormat	  "1.%<AutoIncrement:62>"
+  LastModifiedDate	  "Mon Mar 14 17:24:51 2016"
+  RTWModifiedTimeStamp	  379877036
+  ModelVersionFormat	  "1.%<AutoIncrement:66>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -897,7 +907,7 @@ Model {
   }
   System {
     Name		    "Sim_model"
-    Location		    [31, 82, 1963, 995]
+    Location		    [1, 79, 1933, 992]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -911,7 +921,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "114"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "39"
+    SIDHighWatermark	    "49"
     Block {
       BlockType		      SubSystem
       Name		      "D"
@@ -922,7 +932,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"D"
-	Location		[31, 82, 1963, 995]
+	Location		[1, 79, 1933, 992]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -956,17 +966,17 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Fuzzy Logic \nController"
-	  SID			  "39"
+	  Name			  "Fuzzy Logic \nController \nwith Ruleviewer"
+	  SID			  "49"
 	  Ports			  [1, 1]
-	  Position		  [235, 156, 295, 204]
-	  ZOrder		  18
+	  Position		  [235, 165, 295, 215]
+	  ZOrder		  22
 	  LibraryVersion	  "1.186"
-	  FontName		  "Arial"
-	  SourceBlock		  "fuzblock/Fuzzy Logic \nController"
+	  SourceBlock		  "fuzblock/Fuzzy Logic \nController \nwith Ruleviewer"
 	  SourceType		  "FIS"
 	  ContentPreviewEnabled	  off
-	  fis			  "'derivative.fis'"
+	  fismatrix		  "derivative"
+	  Ts			  "2"
 	}
 	Block {
 	  BlockType		  Product
@@ -1018,11 +1028,11 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  77
+	  ZOrder		  98
 	  SrcBlock		  "Input"
 	  SrcPort		  1
 	  Points		  [0, 16; 100, 0]
-	  DstBlock		  "Fuzzy Logic \nController"
+	  DstBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  DstPort		  1
 	}
 	Line {
@@ -1034,20 +1044,20 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  76
-	  SrcBlock		  "Fuzzy Logic \nController"
+	  ZOrder		  97
+	  SrcBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SrcPort		  1
 	  Points		  [25, 0]
+	  Branch {
+	    ZOrder		    99
+	    Points		    [0, -10; 7, 0; 0, -31; -96, 0; 0, -29]
+	    DstBlock		    "Product"
+	    DstPort		    2
+	  }
 	  Branch {
 	    ZOrder		    73
 	    DstBlock		    "Scope"
 	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    72
-	    Points		    [7, 0; 0, -31; -96, 0; 0, -29]
-	    DstBlock		    "Product"
-	    DstPort		    2
 	  }
 	}
 	Line {
@@ -1088,7 +1098,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"P"
-	Location		[31, 82, 1963, 995]
+	Location		[1, 79, 1933, 992]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1129,17 +1139,17 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Fuzzy Logic \nController"
-	  SID			  "38"
+	  Name			  "Fuzzy Logic \nController \nwith Ruleviewer"
+	  SID			  "48"
 	  Ports			  [1, 1]
-	  Position		  [170, 81, 230, 129]
-	  ZOrder		  13
+	  Position		  [170, 75, 230, 125]
+	  ZOrder		  17
 	  LibraryVersion	  "1.186"
-	  FontName		  "Arial"
-	  SourceBlock		  "fuzblock/Fuzzy Logic \nController"
+	  SourceBlock		  "fuzblock/Fuzzy Logic \nController \nwith Ruleviewer"
 	  SourceType		  "FIS"
 	  ContentPreviewEnabled	  off
-	  fis			  "'proportional.fis'"
+	  fismatrix		  "proportional"
+	  Ts			  "110"
 	  Port {
 	    PortNumber		    1
 	    Name		    "Pgain"
@@ -1167,7 +1177,7 @@ Model {
 	  Position		  [335, 144, 365, 176]
 	  ZOrder		  9
 	  Floating		  off
-	  Location		  [1, 51, 1921, 1036]
+	  Location		  [10, 60, 1930, 1045]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  List {
@@ -1231,10 +1241,10 @@ Model {
 	  SrcPort		  1
 	  Points		  [0, 16; 60, 0]
 	  Branch {
-	    ZOrder		    68
+	    ZOrder		    94
 	    Labels		    [0, 0]
-	    Points		    [29, 0; 0, -41]
-	    DstBlock		    "Fuzzy Logic \nController"
+	    Points		    [29, 0; 0, -46]
+	    DstBlock		    "Fuzzy Logic \nController \nwith Ruleviewer"
 	    DstPort		    1
 	  }
 	  Branch {
@@ -1254,20 +1264,20 @@ Model {
 	}
 	Line {
 	  Name			  "Pgain"
-	  ZOrder		  69
+	  ZOrder		  93
 	  Labels		  [1, 1]
-	  SrcBlock		  "Fuzzy Logic \nController"
+	  SrcBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SrcPort		  1
 	  Points		  [32, 0]
 	  Branch {
-	    ZOrder		    59
-	    Points		    [0, 55]
+	    ZOrder		    85
+	    Points		    [0, 60]
 	    DstBlock		    "Scope"
 	    DstPort		    1
 	  }
 	  Branch {
 	    ZOrder		    58
-	    Points		    [0, -31; -96, 0; 0, -29]
+	    Points		    [0, -26; -96, 0; 0, -29]
 	    DstBlock		    "Product"
 	    DstPort		    2
 	  }
@@ -1287,7 +1297,7 @@ Model {
       Name		      "Ref+Output"
       SID		      "4"
       Ports		      [1]
-      Position		      [750, 110, 780, 140]
+      Position		      [765, 110, 795, 140]
       ZOrder		      -4
       NamePlacement	      "alternate"
       FontName		      "Times New Roman"
@@ -1302,7 +1312,7 @@ Model {
       }
       List {
 	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
+	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
 	AxesColor		"[0 0 0]"
 	AxesTickColor		"[1 1 1]"
 	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
@@ -1311,10 +1321,11 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
-      TimeRange		      "110             "
-      YMin		      "2.3"
-      YMax		      "3"
-      SaveName		      "u2"
+      TimeRange		      "110"
+      YMin		      "0.5"
+      YMax		      "1.1"
+      SaveToWorkspace	      on
+      SaveName		      "out"
       LimitDataPoints	      off
       SampleTime	      "0"
       ScrollMode	      off
@@ -1371,6 +1382,23 @@ Model {
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
     }
+    Block {
+      BlockType		      Outport
+      Name		      "Out1"
+      SID		      "44"
+      Position		      [740, 198, 770, 212]
+      ZOrder		      9
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Out2"
+      SID		      "45"
+      Position		      [740, 238, 770, 252]
+      ZOrder		      10
+      Port		      "2"
+      IconDisplay	      "Port number"
+    }
     Line {
       ZOrder		      2
       SrcBlock		      "S-Nonlin Sys"
@@ -1385,9 +1413,18 @@ Model {
       }
       Branch {
 	ZOrder			4
-	Points			[0, -65]
-	DstBlock		"Mux1"
-	DstPort			2
+	Points			[0, -65; 31, 0]
+	Branch {
+	  ZOrder		  85
+	  Points		  [0, 110]
+	  DstBlock		  "Out2"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  84
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
       }
     }
     Line {
@@ -1427,9 +1464,18 @@ Model {
 	  }
 	  Branch {
 	    ZOrder		    11
-	    Points		    [0, -90]
-	    DstBlock		    "Mux1"
-	    DstPort		    1
+	    Points		    [0, -90; 536, 0]
+	    Branch {
+	      ZOrder		      83
+	      Points		      [0, 95]
+	      DstBlock		      "Out1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      ZOrder		      82
+	      DstBlock		      "Mux1"
+	      DstPort		      1
+	    }
 	  }
 	}
       }

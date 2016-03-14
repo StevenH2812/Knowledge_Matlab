@@ -8,7 +8,7 @@ syms x;
 %LINEAR TAKAGI SUGENO WOULD BE [x,1]
 %ANY OTHER MODEL (OF ANY ORDER) IS ALLOWED AS WELL (E.G. [sin(x),x^2,1])
 
-TSmodel = [sin(x),sin(10*x),x,1];
+TSmodel = [x,1];
 
 
 %-------INTERACTION TO DEFINE THE REST OF THE FUZZY PROBLEM----------%
