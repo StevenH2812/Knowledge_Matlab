@@ -8,13 +8,13 @@ syms x;
 %LINEAR TAKAGI SUGENO WOULD BE [x,1]
 %ANY OTHER MODEL (OF ANY ORDER) IS ALLOWED AS WELL (E.G. [sin(x),x^2,1])
 
-TSmodel = [x,1];
+TSmodel = [sin(x),sin(10*x),x,1];
 
 
 %-------INTERACTION TO DEFINE THE REST OF THE FUZZY PROBLEM----------%
 disp('Hello, in this set of questions you can define the Fuzzy problem');
 cornerdef = input('Would you like to automatically generate membership functions? [y/n]: ','s');
-n = input('How many membership functions should there be? [0-n]: ');
+n = input('How many membership functions should there be? [2-n]: ');
 corners = {};
 if cornerdef=='n'
     low = input('Please specify the lower domain bound as a number: ');
@@ -74,9 +74,9 @@ end
 
 figure;
 hold on;
-plot(xpoints,ypoints);
-plot(xpoints,yapprox);
-legend('Function','Takagi-Sugeno approximation');
+plot(xpoints,yapprox,'b');
+plot(xpoints,ypoints,'r--');
+legend('Takagi-Sugeno approximation','Function');
 
 
 
