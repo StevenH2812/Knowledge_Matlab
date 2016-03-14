@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.60"
+    ComputedModelVersion    "1.62"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,7 +30,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1912.0, 0.0, 1936.0, 1092.0]
+      Location		      [31.0, 82.0, 1932.0, 913.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -39,7 +39,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[9]
+	Filter			[8]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -54,9 +54,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1886.0, 918.0]
-	ZoomFactor		[2.0]
-	Offset			[-69.53368227743681, 31.584010669425709]
+	Extents			[1882.0, 731.0]
+	ZoomFactor		[1.14]
+	Offset			[-2.2807017543859729, -3.2807017543859729]
       }
     }
   }
@@ -64,11 +64,11 @@ Model {
   Creator		  "lbusoniu"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Steven"
+  LastModifiedBy	  "Nikhil"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 11 21:14:46 2016"
-  RTWModifiedTimeStamp	  379631502
-  ModelVersionFormat	  "1.%<AutoIncrement:60>"
+  LastModifiedDate	  "Mon Mar 14 16:39:42 2016"
+  RTWModifiedTimeStamp	  379874292
+  ModelVersionFormat	  "1.%<AutoIncrement:62>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -897,7 +897,7 @@ Model {
   }
   System {
     Name		    "Sim_model"
-    Location		    [1912, 0, 3848, 1092]
+    Location		    [31, 82, 1963, 995]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -909,20 +909,20 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "200"
+    ZoomFactor		    "114"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "29"
+    SIDHighWatermark	    "39"
     Block {
       BlockType		      SubSystem
       Name		      "D"
       SID		      "21"
       Ports		      [2, 1]
-      Position		      [330, 237, 415, 303]
+      Position		      [330, 239, 415, 306]
       ZOrder		      7
       RequestExecContextInheritance off
       System {
 	Name			"D"
-	Location		[1912, 0, 3848, 1092]
+	Location		[31, 82, 1963, 995]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -956,11 +956,11 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Fuzzy Logic \nController1"
-	  SID			  "26"
+	  Name			  "Fuzzy Logic \nController"
+	  SID			  "39"
 	  Ports			  [1, 1]
 	  Position		  [235, 156, 295, 204]
-	  ZOrder		  13
+	  ZOrder		  18
 	  LibraryVersion	  "1.186"
 	  FontName		  "Arial"
 	  SourceBlock		  "fuzblock/Fuzzy Logic \nController"
@@ -981,6 +981,35 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  Scope
+	  Name			  "Scope"
+	  SID			  "34"
+	  Ports			  [1]
+	  Position		  [340, 224, 370, 256]
+	  ZOrder		  17
+	  Floating		  off
+	  Location		  [1, 51, 1921, 1036]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  ShowLegends		  off
+	  SaveName		  "ScopeData1"
+	  ScrollMode		  off
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "Gained_sig"
 	  SID			  "28"
@@ -989,11 +1018,11 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  63
+	  ZOrder		  77
 	  SrcBlock		  "Input"
 	  SrcPort		  1
-	  Points		  [0, 16; 98, 0]
-	  DstBlock		  "Fuzzy Logic \nController1"
+	  Points		  [0, 16; 100, 0]
+	  DstBlock		  "Fuzzy Logic \nController"
 	  DstPort		  1
 	}
 	Line {
@@ -1005,18 +1034,27 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  65
-	  SrcBlock		  "Fuzzy Logic \nController1"
+	  ZOrder		  76
+	  SrcBlock		  "Fuzzy Logic \nController"
 	  SrcPort		  1
-	  Points		  [32, 0; 0, -31; -96, 0; 0, -29]
-	  DstBlock		  "Product"
-	  DstPort		  2
+	  Points		  [25, 0]
+	  Branch {
+	    ZOrder		    73
+	    DstBlock		    "Scope"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    72
+	    Points		    [7, 0; 0, -31; -96, 0; 0, -29]
+	    DstBlock		    "Product"
+	    DstPort		    2
+	  }
 	}
 	Line {
 	  ZOrder		  66
 	  SrcBlock		  "Product"
 	  SrcPort		  1
-	  Points		  [105, 0; 0, 25]
+	  Points		  [94, 0; 0, 25]
 	  DstBlock		  "Gained_sig"
 	  DstPort		  1
 	}
@@ -1050,7 +1088,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"P"
-	Location		[1912, 0, 3848, 1092]
+	Location		[31, 82, 1963, 995]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1065,13 +1103,20 @@ Model {
 	ZoomFactor		"200"
 	Block {
 	  BlockType		  Inport
-	  Name			  "Input"
+	  Name			  "Signal"
 	  SID			  "13"
 	  Position		  [40, 110, 70, 125]
 	  ZOrder		  4
 	  BlockRotation		  270
 	  BlockMirror		  on
-	  IconDisplay		  "Port number"
+	  ShowName		  off
+	  IconDisplay		  "Port number and signal name"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Signal"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Inport
@@ -1085,16 +1130,22 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Fuzzy Logic \nController"
-	  SID			  "19"
+	  SID			  "38"
 	  Ports			  [1, 1]
 	  Position		  [170, 81, 230, 129]
-	  ZOrder		  8
+	  ZOrder		  13
 	  LibraryVersion	  "1.186"
 	  FontName		  "Arial"
 	  SourceBlock		  "fuzblock/Fuzzy Logic \nController"
 	  SourceType		  "FIS"
 	  ContentPreviewEnabled	  off
 	  fis			  "'proportional.fis'"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Pgain"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Product
@@ -1109,6 +1160,63 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  Scope
+	  Name			  "Scope"
+	  SID			  "30"
+	  Ports			  [1]
+	  Position		  [335, 144, 365, 176]
+	  ZOrder		  9
+	  Floating		  off
+	  Location		  [1, 51, 1921, 1036]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  ShowLegends		  off
+	  ScrollMode		  off
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope1"
+	  SID			  "35"
+	  Ports			  [1]
+	  Position		  [165, 204, 195, 236]
+	  ZOrder		  10
+	  Floating		  off
+	  Location		  [188, 365, 512, 604]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  ShowLegends		  off
+	  SaveName		  "ScopeData2"
+	  ScrollMode		  off
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "Gained_sig"
 	  SID			  "15"
@@ -1117,12 +1225,24 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  Name			  "Signal"
 	  ZOrder		  52
-	  SrcBlock		  "Input"
+	  SrcBlock		  "Signal"
 	  SrcPort		  1
-	  Points		  [0, 16; 98, 0]
-	  DstBlock		  "Fuzzy Logic \nController"
-	  DstPort		  1
+	  Points		  [0, 16; 60, 0]
+	  Branch {
+	    ZOrder		    68
+	    Labels		    [0, 0]
+	    Points		    [29, 0; 0, -41]
+	    DstBlock		    "Fuzzy Logic \nController"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    61
+	    Points		    [0, 74]
+	    DstBlock		    "Scope1"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  ZOrder		  43
@@ -1133,12 +1253,24 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  51
+	  Name			  "Pgain"
+	  ZOrder		  69
+	  Labels		  [1, 1]
 	  SrcBlock		  "Fuzzy Logic \nController"
 	  SrcPort		  1
-	  Points		  [32, 0; 0, -31; -96, 0; 0, -29]
-	  DstBlock		  "Product"
-	  DstPort		  2
+	  Points		  [32, 0]
+	  Branch {
+	    ZOrder		    59
+	    Points		    [0, 55]
+	    DstBlock		    "Scope"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    58
+	    Points		    [0, -31; -96, 0; 0, -29]
+	    DstBlock		    "Product"
+	    DstPort		    2
+	  }
 	}
 	Line {
 	  ZOrder		  44
@@ -1161,7 +1293,7 @@ Model {
       FontName		      "Times New Roman"
       FontSize		      12
       Floating		      off
-      Location		      [951, 391, 1512, 739]
+      Location		      [10, 60, 1926, 1045]
       Open		      off
       NumInputPorts	      "1"
       List {

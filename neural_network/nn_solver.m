@@ -18,15 +18,15 @@ clear all; close all; clc;
 % # USER CONFIGURATION
 
 % Mode 
-ota_p = true;               % true: One-step ahead predicition / false: simulation
+ota_p = false;               % true: One-step ahead predicition / false: simulation
     
 % Neural Network
-inputDelays = 1:2;          % Number of delays to use
-feedbackDelays = 1:2;       % Number of feedback delays to use
-hiddenLayersize = 2;        % Number of NN hidden layers
+inputDelays = 1:1;          % Number of delays to use / 1:2 means x(t-1) and x(t-2) is used to estimate y(t) for series-parallel NARX
+feedbackDelays = 1:1;       % Number of feedback delays to use / 1:2 means y(t-1) and y(t-2) is used to estimate y(t) for series-parallel NARX
+hiddenLayersize = 200;        % Number of NN hidden layers
 
 % Data set 
-trainfactor = 0.75;          % Percentage of id data set for training, remaining for MATLAB validation of overfitting
+trainfactor = 0.9;          % Percentage of id data set for training, remaining for MATLAB validation of overfitting
 
 % S/W Performance Boost
 USE_PARALLEL = 'no';        % 'yes': Possibly faster for higher number of layers/delays / 'no': disable
@@ -47,13 +47,13 @@ load iddata-05.mat
 % Identification data set
 
 id_u = iddata.u;
-id_y = iddata.y;
+id_y = (iddata.y) %+(rand(numel(iddata.y),1));
 id_ts = iddata.Ts;
 
 % Validation data set
 
-val_u = (valdata.u);
-val_y = (valdata.y);
+val_u = valdata.u; %.*(rand(numel(valdata.u),1).*5) %NOISE;
+val_y = valdata.y;
 val_ts = valdata.Ts;
 
 % Combine data set and use index splitting later
@@ -62,8 +62,10 @@ inputData = [id_u; val_u].';
 outputData = [id_y; val_y].';
 
 %% 
-% # Create NARX neural network that uses input and output history values for
-% dynamic system
+% # Create NARX neural network 
+% Uses input and output history values for dynamic system. This create a 
+% series-parallel network which uses value of the input x and provided 
+% output values upto specified delays to predict the NN output
 
 net = narxnet(inputDelays,feedbackDelays,hiddenLayersize);
 
@@ -87,26 +89,29 @@ net.sampleTime = id_ts;
 % # Divide the data into training and testing/validation, the test data is
 % only used for testing the neural network's performance
 
-% Determine indices
+% Determine indices 
 
-train_up = numel(id_u)*trainfactor;
-val_low = train_up+1;
-val_up = numel(id_u);
-test_low = val_up+1;
-test_up = val_up + numel(val_u);
+train_up = numel(id_u)*trainfactor;		% Training data upper bound index
+val_low = train_up+1;					% MATLAB Validation data lower bound index
+val_up = numel(id_u);					% MATLAB Validation data upper bound index
+test_low = val_up+1;					% Testing data lower bound index
+test_up = val_up + numel(val_u);		% Testing data upper bound index
 
-% Divide data for by index
+% Divide data for NN by index
 net.divideFcn = 'divideind'; 
 
-[net.divideParam.trainInd, net.divideParam.valInd, net.divideParam.testInd] = divideind(numel(inputData) , 1:train_up , val_low:val_up , test_low:test_up );
+[net.divideParam.trainInd, net.divideParam.valInd, net.divideParam.testInd] = divideind(numel(outputData) , 1:train_up , val_low:val_up , test_low:test_up );
 
 %% 
-% # Network training 
+% # Network training
+% returns trained network and training including number of iterations 
+% and performance MSE
 
 [net, trainrecord] = train(net, data_in, data_out, instate, layerstate,'useParallel',USE_PARALLEL);
 
 %%
-% # Test the network
+% # Test the network 
+%
 
 test_output = net(data_in, instate, layerstate);
 test_performance = perform(net, data_out, test_output);
