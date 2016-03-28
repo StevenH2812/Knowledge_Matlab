@@ -1,14 +1,11 @@
-% Neural Network NARX Tool Problem 3
+% Black-box data-driven modelling - Problem 3
 %
-% DESCRIPTION
-%
-% One very good description will eventually be given here!
-% Check http://nl.mathworks.com/help/nnet/gs/neural-network-time-series-prediction-and-modeling.html
+% MATLAB NARX NEURAL NETWORK. The model uses a NARX neural network as
+% implemented in MATLAB. The NN is training using a training set and the 
+% performance is evaluated using a validation set.  
 %   
-% PROPERTIES
-%
 % @author:  Nikhil Potdar and Steven van der Helm
-% @date:    11/03/2016    
+% @date:    28/03/2016    
 % @subject: KBCS SC4081 MATLAB
 %
 
@@ -18,7 +15,7 @@ clear all; close all; clc;
 % # USER CONFIGURATION
 
 % Mode 
-ota_p = true;               % true: One-step ahead predicition / false: simulation
+ota_p = false;               % true: One-step ahead predicition / false: simulation
     
 % Neural Network
 inputDelays = 1:2;          % Number of delays to use / 1:2 means x(t-1) and x(t-2) is used to estimate y(t) for series-parallel NARX
@@ -44,7 +41,7 @@ load iddata-05.mat
 
 % # Prepare data for neural network toolbox
 
-% Identification data set
+% Training data set
 
 id_u = iddata.u;
 id_y = (iddata.y); %+(rand(numel(iddata.y),1));
@@ -91,16 +88,16 @@ net.sampleTime = id_ts;
 
 % Determine indices 
 
-train_up = numel(id_u)*trainfactor;		% Training data upper bound index
-val_low = train_up+1;					% MATLAB Validation data lower bound index
-val_up = numel(id_u);					% MATLAB Validation data upper bound index
-test_low = val_up+1;					% Testing data lower bound index
-test_up = val_up + numel(val_u);		% Testing data upper bound index
+ind_train_up = numel(id_u)*trainfactor;		% Training data upper bound index
+ind_val_low = ind_train_up+1;					% MATLAB Validation data lower bound index
+ind_val_up = numel(id_u);					% MATLAB Validation data upper bound index
+ind_test_low = ind_val_up+1;					% Testing data lower bound index
+ind_test_up = ind_val_up + numel(val_u);		% Testing data upper bound index
 
 % Divide data for NN by index
 net.divideFcn = 'divideind'; 
 
-[net.divideParam.trainInd, net.divideParam.valInd, net.divideParam.testInd] = divideind(numel(outputData) , 1:train_up , val_low:val_up , test_low:test_up );
+[net.divideParam.trainInd, net.divideParam.valInd, net.divideParam.testInd] = divideind(numel(outputData) , 1:ind_train_up , ind_val_low:ind_val_up , ind_test_low:ind_test_up );
 
 %% 
 % # Network training
@@ -113,13 +110,14 @@ net.divideFcn = 'divideind';
 % # Test the network and performance calculations
 % fixme: CHECK THE INDICES FOR RMS CALCULATIONS
 
+% Preparation of the data for the neural network testing
+[val_in, val_instate, val_layerstate, val_out, ~, val_shift] = preparets(net,num2cell(val_u.'),{},num2cell(val_y.'));
 
-test_out = net(data_in, data_instate, data_layerstate);
-test_performance = perform(net, data_out, test_out);
+test_out = net(val_in, val_instate, val_layerstate);
+test_performance = perform(net, val_out, test_out);
 
 % Performance calculations 
-test_diff_error = cell2mat(gsubtract(data_out, test_out));
-test_rms = rms(test_diff_error(test_low:(end-modifier)));
+test_rms = rms(cell2mat(gsubtract(val_out, test_out)));
 
 disp(['Root-mean square error of test data set: ', num2str(test_rms)]);
 
@@ -127,16 +125,14 @@ disp(['Root-mean square error of test data set: ', num2str(test_rms)]);
 
 % figure, plotresponse(targets,outputs)
 
-data_out_plt = (cell2mat(data_out));
-data_out_plt = data_out_plt(test_low:end);
-test_out_plt = (cell2mat(test_out));
-test_out_plt = test_out_plt(test_low:end);
+val_out_plt = cell2mat(val_out);
+test_out_plt = cell2mat(test_out);
 
-time_series = ((numel(val_y)-numel(test_out_plt)+1):numel(val_y))*val_ts;    % Moving time-series based on number of Delays included as data set is shifted for initiation 
+time_series = (val_shift:(numel(val_out)+val_shift-1))*val_ts;    % Moving time-series based on number of Delays included as data set is shifted for initiation 
 
 
 figure(1);
-p1 = plot(time_series, data_out_plt,'--', time_series, test_out_plt);
+p1 = plot(time_series, val_out_plt,'--', time_series, test_out_plt);
 p1(1).LineWidth = 1.5; 
 title('Time-series Response of Test and Neural Network output');
 ylabel('Output [-]');

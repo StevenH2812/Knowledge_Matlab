@@ -10,14 +10,16 @@ Model {
       Name		      "Out1"
       BusObject		      ""
       BusOutputAsStruct	      "off"
+      SignalName	      "u"
     }
     Outport {
       Name		      "Out2"
       BusObject		      ""
       BusOutputAsStruct	      "off"
+      SignalName	      "y"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.66"
+    ComputedModelVersion    "1.78"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -40,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1.0, 79.0, 1932.0, 913.0]
+      Location		      [953.0, 0.0, 974.0, 1044.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,9 +66,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1882.0, 739.0]
+	Extents			[924.0, 862.0]
 	ZoomFactor		[1.14]
-	Offset			[-2.2807017543859729, -3.2807017543859729]
+	Offset			[11.754385964912274, -27.008771652715325]
       }
     }
   }
@@ -74,11 +76,11 @@ Model {
   Creator		  "lbusoniu"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Steven"
+  LastModifiedBy	  "Nikhil"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 14 17:24:51 2016"
-  RTWModifiedTimeStamp	  379877036
-  ModelVersionFormat	  "1.%<AutoIncrement:66>"
+  LastModifiedDate	  "Mon Mar 28 23:48:29 2016"
+  RTWModifiedTimeStamp	  381109558
+  ModelVersionFormat	  "1.%<AutoIncrement:78>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -907,7 +909,7 @@ Model {
   }
   System {
     Name		    "Sim_model"
-    Location		    [1, 79, 1933, 992]
+    Location		    [953, 0, 1927, 1044]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -921,7 +923,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "114"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "49"
+    SIDHighWatermark	    "50"
     Block {
       BlockType		      SubSystem
       Name		      "D"
@@ -932,7 +934,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"D"
-	Location		[1, 79, 1933, 992]
+	Location		[953, 0, 1927, 1044]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -959,7 +961,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "derivative error"
 	  SID			  "25"
-	  Position		  [145, 133, 175, 147]
+	  Position		  [105, 98, 135, 112]
 	  ZOrder		  11
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -976,14 +978,20 @@ Model {
 	  SourceType		  "FIS"
 	  ContentPreviewEnabled	  off
 	  fismatrix		  "derivative"
-	  Ts			  "2"
+	  Ts			  "110"
+	  Port {
+	    PortNumber		    1
+	    Name		    "D gain"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product"
 	  SID			  "27"
 	  Ports			  [2, 1]
-	  Position		  [250, 97, 280, 128]
+	  Position		  [375, 97, 405, 128]
 	  ZOrder		  9
 	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -995,7 +1003,7 @@ Model {
 	  Name			  "Scope"
 	  SID			  "34"
 	  Ports			  [1]
-	  Position		  [340, 224, 370, 256]
+	  Position		  [375, 174, 405, 206]
 	  ZOrder		  17
 	  Floating		  off
 	  Location		  [1, 51, 1921, 1036]
@@ -1023,7 +1031,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Gained_sig"
 	  SID			  "28"
-	  Position		  [530, 133, 560, 147]
+	  Position		  [535, 108, 565, 122]
 	  ZOrder		  12
 	  IconDisplay		  "Port number"
 	}
@@ -1039,18 +1047,19 @@ Model {
 	  ZOrder		  64
 	  SrcBlock		  "derivative error"
 	  SrcPort		  1
-	  Points		  [18, 0; 0, -35]
 	  DstBlock		  "Product"
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "D gain"
 	  ZOrder		  97
 	  SrcBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SrcPort		  1
 	  Points		  [25, 0]
 	  Branch {
 	    ZOrder		    99
-	    Points		    [0, -10; 7, 0; 0, -31; -96, 0; 0, -29]
+	    Labels		    [1, 1]
+	    Points		    [0, -70]
 	    DstBlock		    "Product"
 	    DstPort		    2
 	  }
@@ -1064,7 +1073,6 @@ Model {
 	  ZOrder		  66
 	  SrcBlock		  "Product"
 	  SrcPort		  1
-	  Points		  [94, 0; 0, 25]
 	  DstBlock		  "Gained_sig"
 	  DstPort		  1
 	}
@@ -1074,8 +1082,14 @@ Model {
       BlockType		      Derivative
       Name		      "Derivative"
       SID		      "17"
-      Position		      [270, 270, 300, 300]
+      Position		      [240, 275, 270, 305]
       ZOrder		      5
+      Port {
+	PortNumber		1
+	Name			"edot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Mux
@@ -1093,12 +1107,12 @@ Model {
       Name		      "P"
       SID		      "12"
       Ports		      [2, 1]
-      Position		      [245, 129, 330, 176]
+      Position		      [330, 134, 415, 181]
       ZOrder		      4
       RequestExecContextInheritance off
       System {
 	Name			"P"
-	Location		[1, 79, 1933, 992]
+	Location		[953, 0, 1927, 1044]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1115,7 +1129,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "Signal"
 	  SID			  "13"
-	  Position		  [40, 110, 70, 125]
+	  Position		  [75, 95, 105, 110]
 	  ZOrder		  4
 	  BlockRotation		  270
 	  BlockMirror		  on
@@ -1123,7 +1137,8 @@ Model {
 	  IconDisplay		  "Port number and signal name"
 	  Port {
 	    PortNumber		    1
-	    Name		    "Signal"
+	    Name		    "Input\n"
+	    PropagatedSignals	    "u"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -1132,7 +1147,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "error"
 	  SID			  "14"
-	  Position		  [80, 58, 110, 72]
+	  Position		  [75, 48, 105, 62]
 	  ZOrder		  5
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1142,7 +1157,7 @@ Model {
 	  Name			  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SID			  "48"
 	  Ports			  [1, 1]
-	  Position		  [170, 75, 230, 125]
+	  Position		  [170, 120, 230, 170]
 	  ZOrder		  17
 	  LibraryVersion	  "1.186"
 	  SourceBlock		  "fuzblock/Fuzzy Logic \nController \nwith Ruleviewer"
@@ -1162,7 +1177,7 @@ Model {
 	  Name			  "Product"
 	  SID			  "11"
 	  Ports			  [2, 1]
-	  Position		  [185, 22, 215, 53]
+	  Position		  [335, 47, 365, 78]
 	  ZOrder		  3
 	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1174,7 +1189,7 @@ Model {
 	  Name			  "Scope"
 	  SID			  "30"
 	  Ports			  [1]
-	  Position		  [335, 144, 365, 176]
+	  Position		  [335, 129, 365, 161]
 	  ZOrder		  9
 	  Floating		  off
 	  Location		  [10, 60, 1930, 1045]
@@ -1198,95 +1213,53 @@ Model {
 	  ScrollMode		  off
 	}
 	Block {
-	  BlockType		  Scope
-	  Name			  "Scope1"
-	  SID			  "35"
-	  Ports			  [1]
-	  Position		  [165, 204, 195, 236]
-	  ZOrder		  10
-	  Floating		  off
-	  Location		  [188, 365, 512, 604]
-	  Open			  off
-	  NumInputPorts		  "1"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "%<SignalLabel>"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  SaveName		  "ScopeData2"
-	  ScrollMode		  off
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "Gained_sig"
 	  SID			  "15"
-	  Position		  [465, 58, 495, 72]
+	  Position		  [460, 58, 490, 72]
 	  ZOrder		  6
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  Name			  "Signal"
+	  Name			  "Input\n"
 	  ZOrder		  52
+	  Labels		  [2, 1]
 	  SrcBlock		  "Signal"
 	  SrcPort		  1
-	  Points		  [0, 16; 60, 0]
-	  Branch {
-	    ZOrder		    94
-	    Labels		    [0, 0]
-	    Points		    [29, 0; 0, -46]
-	    DstBlock		    "Fuzzy Logic \nController \nwith Ruleviewer"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    61
-	    Points		    [0, 74]
-	    DstBlock		    "Scope1"
-	    DstPort		    1
-	  }
+	  Points		  [0, 30]
+	  DstBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
+	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  43
 	  SrcBlock		  "error"
 	  SrcPort		  1
-	  Points		  [18, 0; 0, -35]
 	  DstBlock		  "Product"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "Pgain"
 	  ZOrder		  93
-	  Labels		  [1, 1]
 	  SrcBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SrcPort		  1
 	  Points		  [32, 0]
 	  Branch {
-	    ZOrder		    85
-	    Points		    [0, 60]
-	    DstBlock		    "Scope"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    58
-	    Points		    [0, -26; -96, 0; 0, -29]
+	    ZOrder		    101
+	    Labels		    [1, 1]
+	    Points		    [0, -75]
 	    DstBlock		    "Product"
 	    DstPort		    2
+	  }
+	  Branch {
+	    ZOrder		    85
+	    DstBlock		    "Scope"
+	    DstPort		    1
 	  }
 	}
 	Line {
 	  ZOrder		  44
 	  SrcBlock		  "Product"
 	  SrcPort		  1
-	  Points		  [105, 0; 0, 25]
 	  DstBlock		  "Gained_sig"
 	  DstPort		  1
 	}
@@ -1303,7 +1276,7 @@ Model {
       FontName		      "Times New Roman"
       FontSize		      12
       Floating		      off
-      Location		      [10, 60, 1926, 1045]
+      Location		      [2, 125, 1918, 1110]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -1344,30 +1317,47 @@ Model {
       ContentPreviewEnabled   off
       rep_seq_t		      "[0 15 15.5 30 30.5 45 45.5 60 60.5 75 75.5 90 91.5 111]"
       rep_seq_y		      "[1 1 .5 .5 2 2 1.5 1.5 3 3 2.5 2.5 4 4]"
+      Port {
+	PortNumber		1
+	Name			"u"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      S-Function
       Name		      "S-Nonlin Sys"
       SID		      "6"
       Ports		      [1, 1]
-      Position		      [525, 185, 585, 215]
+      Position		      [525, 210, 585, 240]
       ZOrder		      -6
       FunctionName	      "sfun_nlsys"
       EnableBusSupport	      off
+      Port {
+	PortNumber		1
+	Name			"y"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Sum
       Name		      "Sum"
       SID		      "29"
       Ports		      [2, 1]
-      Position		      [425, 175, 445, 195]
+      Position		      [445, 215, 465, 235]
       ZOrder		      8
       ShowName		      off
       IconShape		      "round"
-      Inputs		      "|++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
+      Port {
+	PortNumber		1
+	Name			"c"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Sum
@@ -1381,12 +1371,18 @@ Model {
       Inputs		      "|+-"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      Port {
+	PortNumber		1
+	Name			"e"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      Outport
       Name		      "Out1"
       SID		      "44"
-      Position		      [740, 198, 770, 212]
+      Position		      [765, 253, 795, 267]
       ZOrder		      9
       IconDisplay	      "Port number"
     }
@@ -1394,29 +1390,24 @@ Model {
       BlockType		      Outport
       Name		      "Out2"
       SID		      "45"
-      Position		      [740, 238, 770, 252]
+      Position		      [765, 183, 795, 197]
       ZOrder		      10
       Port		      "2"
       IconDisplay	      "Port number"
     }
     Line {
+      Name		      "y"
       ZOrder		      2
+      Labels		      [1, 1]
       SrcBlock		      "S-Nonlin Sys"
       SrcPort		      1
       Points		      [65, 0]
       Branch {
-	ZOrder			17
-	Labels			[2, 0]
-	Points			[0, 153; -475, 0]
-	DstBlock		"Sum1"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			4
-	Points			[0, -65; 31, 0]
+	ZOrder			104
+	Points			[0, -90; 31, 0]
 	Branch {
 	  ZOrder		  85
-	  Points		  [0, 110]
+	  Points		  [0, 55]
 	  DstBlock		  "Out2"
 	  DstPort		  1
 	}
@@ -1426,57 +1417,63 @@ Model {
 	  DstPort		  2
 	}
       }
+      Branch {
+	ZOrder			17
+	Labels			[2, 0]
+	Points			[0, 128; -475, 0]
+	DstBlock		"Sum1"
+	DstPort			2
+      }
     }
     Line {
-      ZOrder		      8
+      ZOrder		      124
       SrcBlock		      "Mux1"
       SrcPort		      1
       DstBlock		      "Ref+Output"
       DstPort		      1
     }
     Line {
+      Name		      "u"
       ZOrder		      9
       SrcBlock		      "Repeating\nSequence"
       SrcPort		      1
-      Points		      [22, 0]
+      Points		      [32, 0]
       Branch {
-	ZOrder			67
-	Points			[0, 55]
-	DstBlock		"D"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			66
-	Points			[10, 0]
+	ZOrder			37
+	Points			[29, 0]
+	Branch {
+	  ZOrder		  66
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
 	Branch {
 	  ZOrder		  42
-	  Points		  [0, -60]
+	  Labels		  [2, 1]
+	  Points		  [0, -55]
 	  DstBlock		  "P"
 	  DstPort		  1
 	}
 	Branch {
-	  ZOrder		  37
-	  Points		  [23, 0]
-	  Branch {
-	    ZOrder		    10
-	    DstBlock		    "Sum1"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    11
-	    Points		    [0, -90; 536, 0]
-	    Branch {
-	      ZOrder		      83
-	      Points		      [0, 95]
-	      DstBlock		      "Out1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      ZOrder		      82
-	      DstBlock		      "Mux1"
-	      DstPort		      1
-	    }
-	  }
+	  ZOrder		  67
+	  Labels		  [2, 1]
+	  Points		  [0, 55]
+	  DstBlock		  "D"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	ZOrder			11
+	Points			[0, -90; 559, 0]
+	Branch {
+	  ZOrder		  83
+	  Points		  [0, 150]
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  82
+	  DstBlock		  "Mux1"
+	  DstPort		  1
 	}
       }
     }
@@ -1484,30 +1481,34 @@ Model {
       ZOrder		      70
       SrcBlock		      "P"
       SrcPort		      1
-      Points		      [39, 0; 0, 30]
+      Points		      [35, 0]
       DstBlock		      "Sum"
       DstPort		      1
     }
     Line {
+      Name		      "e"
       ZOrder		      56
       SrcBlock		      "Sum1"
       SrcPort		      1
       Points		      [15, 0]
       Branch {
 	ZOrder			65
-	Points			[0, 85]
+	Points			[0, 90]
 	DstBlock		"Derivative"
 	DstPort			1
       }
       Branch {
 	ZOrder			64
-	Points			[8, 0; 0, -35]
+	Labels			[2, 1]
+	Points			[0, -30]
 	DstBlock		"P"
 	DstPort			2
       }
     }
     Line {
+      Name		      "edot"
       ZOrder		      62
+      Labels		      [1, 1]
       SrcBlock		      "Derivative"
       SrcPort		      1
       DstBlock		      "D"
@@ -1517,17 +1518,29 @@ Model {
       ZOrder		      71
       SrcBlock		      "D"
       SrcPort		      1
-      Points		      [15, 0]
+      Points		      [35, 0]
       DstBlock		      "Sum"
       DstPort		      2
     }
     Line {
+      Name		      "c"
       ZOrder		      72
+      Labels		      [1, 1]
       SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [35, 0; 0, 15]
       DstBlock		      "S-Nonlin Sys"
       DstPort		      1
+    }
+    Annotation {
+      SID		      "50"
+      Name		      "H = Pe + Dedot"
+      Position		      [347, 213, 421, 228]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      off
+      FixedWidth	      off
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
+      ZOrder		      -1
     }
     Annotation {
       SID		      "8"

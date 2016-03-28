@@ -1,3 +1,12 @@
+% Takagi-Sugeno fuzzy model - Problem 1
+%
+% SISO static Takagi=Sugeno system with trapezoidal/singleton antecedent  
+% membership functions and affine linear consequent functions. MORE HERE
+%   
+% @author:  Steven van der Helm and Nikhil Potdar
+% @date:    28/03/2016    
+% @subject: KBCS SC4081 MATLAB
+%
 syms x;
 
 
