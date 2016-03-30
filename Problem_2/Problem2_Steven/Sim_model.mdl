@@ -19,7 +19,7 @@ Model {
       SignalName	      "y"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.78"
+    ComputedModelVersion    "1.80"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -42,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [953.0, 0.0, 974.0, 1044.0]
+      Location		      [-8.0, -8.0, 1936.0, 1053.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,11 +64,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[924.0, 862.0]
-	ZoomFactor		[1.14]
-	Offset			[11.754385964912274, -27.008771652715325]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"12"
+	Extents			[1886.0, 871.0]
+	ZoomFactor		[2.0]
+	Offset			[0.0, 0.0]
       }
     }
   }
@@ -78,9 +78,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Nikhil"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 28 23:48:29 2016"
-  RTWModifiedTimeStamp	  381109558
-  ModelVersionFormat	  "1.%<AutoIncrement:78>"
+  LastModifiedDate	  "Wed Mar 30 10:15:43 2016"
+  RTWModifiedTimeStamp	  381233741
+  ModelVersionFormat	  "1.%<AutoIncrement:80>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -909,8 +909,8 @@ Model {
   }
   System {
     Name		    "Sim_model"
-    Location		    [953, 0, 1927, 1044]
-    Open		    on
+    Location		    [-8, -8, 1928, 1045]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -921,9 +921,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "114"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "50"
+    SIDHighWatermark	    "54"
     Block {
       BlockType		      SubSystem
       Name		      "D"
@@ -934,7 +934,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"D"
-	Location		[953, 0, 1927, 1044]
+	Location		[-8, -8, 1928, 1045]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -951,7 +951,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "Input"
 	  SID			  "24"
-	  Position		  [105, 185, 135, 200]
+	  Position		  [155, 165, 185, 180]
 	  ZOrder		  10
 	  BlockRotation		  270
 	  BlockMirror		  on
@@ -961,7 +961,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "derivative error"
 	  SID			  "25"
-	  Position		  [105, 98, 135, 112]
+	  Position		  [155, 98, 185, 112]
 	  ZOrder		  11
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1031,7 +1031,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Gained_sig"
 	  SID			  "28"
-	  Position		  [535, 108, 565, 122]
+	  Position		  [470, 108, 500, 122]
 	  ZOrder		  12
 	  IconDisplay		  "Port number"
 	}
@@ -1039,7 +1039,7 @@ Model {
 	  ZOrder		  98
 	  SrcBlock		  "Input"
 	  SrcPort		  1
-	  Points		  [0, 16; 100, 0]
+	  Points		  [0, 5]
 	  DstBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  DstPort		  1
 	}
@@ -1112,8 +1112,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"P"
-	Location		[953, 0, 1927, 1044]
-	Open			off
+	Location		[-8, -8, 1928, 1045]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1127,17 +1127,16 @@ Model {
 	ZoomFactor		"200"
 	Block {
 	  BlockType		  Inport
-	  Name			  "Signal"
+	  Name			  "Input"
 	  SID			  "13"
-	  Position		  [75, 95, 105, 110]
+	  Position		  [102, 90, 128, 105]
 	  ZOrder		  4
 	  BlockRotation		  270
 	  BlockMirror		  on
-	  ShowName		  off
-	  IconDisplay		  "Port number and signal name"
+	  IconDisplay		  "Port number"
 	  Port {
 	    PortNumber		    1
-	    Name		    "Input\n"
+	    Name		    "\n"
 	    PropagatedSignals	    "u"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
@@ -1147,7 +1146,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "error"
 	  SID			  "14"
-	  Position		  [75, 48, 105, 62]
+	  Position		  [100, 48, 130, 62]
 	  ZOrder		  5
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1157,7 +1156,7 @@ Model {
 	  Name			  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  SID			  "48"
 	  Ports			  [1, 1]
-	  Position		  [170, 120, 230, 170]
+	  Position		  [170, 95, 230, 145]
 	  ZOrder		  17
 	  LibraryVersion	  "1.186"
 	  SourceBlock		  "fuzblock/Fuzzy Logic \nController \nwith Ruleviewer"
@@ -1189,7 +1188,7 @@ Model {
 	  Name			  "Scope"
 	  SID			  "30"
 	  Ports			  [1]
-	  Position		  [335, 129, 365, 161]
+	  Position		  [335, 104, 365, 136]
 	  ZOrder		  9
 	  Floating		  off
 	  Location		  [10, 60, 1930, 1045]
@@ -1221,12 +1220,12 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  Name			  "Input\n"
+	  Name			  "\n"
 	  ZOrder		  52
 	  Labels		  [2, 1]
-	  SrcBlock		  "Signal"
+	  SrcBlock		  "Input"
 	  SrcPort		  1
-	  Points		  [0, 30]
+	  Points		  [0, 10]
 	  DstBlock		  "Fuzzy Logic \nController \nwith Ruleviewer"
 	  DstPort		  1
 	}
@@ -1244,14 +1243,14 @@ Model {
 	  SrcPort		  1
 	  Points		  [32, 0]
 	  Branch {
-	    ZOrder		    101
+	    ZOrder		    105
 	    Labels		    [1, 1]
-	    Points		    [0, -75]
+	    Points		    [0, -50]
 	    DstBlock		    "Product"
 	    DstPort		    2
 	  }
 	  Branch {
-	    ZOrder		    85
+	    ZOrder		    104
 	    DstBlock		    "Scope"
 	    DstPort		    1
 	  }
@@ -1543,14 +1542,14 @@ Model {
       ZOrder		      -1
     }
     Annotation {
-      SID		      "8"
+      SID		      "54"
       Name		      "REQUIREMENTS\nDesign a fuzzy supervisor for the linear controller, such that \nthe settling time is"
       " maintained under 10 seconds and the overshoot under 25% \nfor a setpoint range between 1 and 4"
-      Position		      [197, 36, 571, 90]
+      Position		      [927, 236, 1076, 360]
       InternalMargins	      [0, 0, 0, 0]
-      FixedHeight	      off
-      FixedWidth	      off
-      ZOrder		      -1
+      FixedHeight	      on
+      FixedWidth	      on
+      ZOrder		      -4
     }
   }
 }
