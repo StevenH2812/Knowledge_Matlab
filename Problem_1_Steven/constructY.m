@@ -1,11 +1,11 @@
 function [ y ] = constructY( corners,x,pars,TSmodel )
-%CONSTRUCTY Summary of this function goes here
-%   Detailed explanation goes here
-den = 0;
+%CONSTRUCTY This function gives a certain "y" value for a certain "x"
+%location, once the membership functions are fully defined (information
+%contained in corners) and the Takagi-Sugeno model has been determined
+%using the least squares operation (information contained in pars)
+
+
 y=0;
-%for i = 1:length(corners)
-%    den = den + evaluateMembership(i,corners,x);
-%end
 
 parcounter = 1;
 for i = 1:length(corners)
@@ -13,8 +13,6 @@ for i = 1:length(corners)
     parsi = pars(parcounter:parcounter+length(TSmodel)-1);
     temp = gammai.*parsi;
     y = y + subs(sum(temp.*TSmodel),x);
-%     y = y + evaluateMembership(i,corners,x)*(pars(parcounter)*x+pars(parcounter+1));
-%     y = y/den;
     parcounter = parcounter +length(TSmodel);
 end
 

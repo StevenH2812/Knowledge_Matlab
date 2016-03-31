@@ -1,6 +1,9 @@
 function [ corners ] = constructMembershipFunctions( n,low,up )
-%CONSTRUCTMEMBERSHIPFUNCTIONS Summary of this function goes here
-%   Detailed explanation goes here
+%CONSTRUCTMEMBERSHIPFUNCTIONS This function is responsible for the
+%automatic generation of membership functions within a certain upper and
+%lower bound. This function is called when the user specifies that it wants
+%to have the membership functions automatically generated
+
 dist = (up-low)/(n-1);
 corners = {};
 corners{1}.one = NaN;

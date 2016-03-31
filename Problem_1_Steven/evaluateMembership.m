@@ -1,6 +1,12 @@
 function [ membership ] = evaluateMembership( member,corners,x)
-%EVALUATEMEMBERSHIP Summary of this function goes here
-%   Detailed explanation goes here
+%EVALUATEMEMBERSHIP This function evaluates the membership degree of a
+%certain "x" location, given the specified membership functions in the
+%interaction with main.m
+%   This function works with corner points and interpolating between them.
+%   If it is desired that the first or last membership function(s) stretch
+%   to infinity, then the first or last corner should be specified as NaN
+%   and the respective second or third corner should be -Inf or Inf
+%   respectively
 membership = 0;
 if x<corners{member}.one
     membership = 0;

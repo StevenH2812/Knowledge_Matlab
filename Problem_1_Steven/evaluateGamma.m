@@ -1,6 +1,7 @@
 function [ gamma ] = evaluateGamma( member,corners,x )
-%EVALUATEGAMMA Summary of this function goes here
-%   Detailed explanation goes here
+%EVALUATEGAMMA This function is similar to evaluateMembership except that
+%it divides by the total membership of all membership functions at a
+%certain "x" location
 
 den = 0;
 for i = 1:length(corners)
