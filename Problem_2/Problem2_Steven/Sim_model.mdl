@@ -42,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1936.0, 1053.0]
+      Location		      [-8.0, 0.0, 1936.0, 1053.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,10 +64,10 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"12"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1886.0, 871.0]
-	ZoomFactor		[2.0]
+	ZoomFactor		[1.0]
 	Offset			[0.0, 0.0]
       }
     }
@@ -78,7 +78,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Nikhil"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 30 10:15:43 2016"
+  LastModifiedDate	  "Fri Apr 01 17:43:14 2016"
   RTWModifiedTimeStamp	  381233741
   ModelVersionFormat	  "1.%<AutoIncrement:80>"
   ConfigurationManager	  "none"
@@ -909,8 +909,8 @@ Model {
   }
   System {
     Name		    "Sim_model"
-    Location		    [-8, -8, 1928, 1045]
-    Open		    off
+    Location		    [-8, 0, 1928, 1053]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1112,8 +1112,8 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"P"
-	Location		[-8, -8, 1928, 1045]
-	Open			on
+	Location		[-8, 0, 1928, 1053]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
