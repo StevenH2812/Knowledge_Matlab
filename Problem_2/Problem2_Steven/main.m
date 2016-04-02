@@ -7,7 +7,7 @@
 % @date:    28/03/2016    
 % @subject: KBCS SC4081 MATLAB
 
-
+set(0,'DefaultAxesFontSize',12)
 % Include fis files for Fuzzy Controller
 proportional = readfis('proportional.fis');
 derivative = readfis('derivative.fis');
@@ -24,6 +24,7 @@ upbound = [];
 lowbound = [];
 upbound(1)=insig(1)+0.5*0.1;
 lowbound(1)=insig(1)-0.5*0.1;
+
 
 %This code is here to plot the error bands around the signal
 inarray = [1 1 .5 .5 2 2 1.5 1.5 3 3 2.5 2.5 4 4];
@@ -63,3 +64,31 @@ legend('Reference','Model Output','location','southeast');
 set(gca,'XTick',0:10:120);
 set(gca,'FontSize',22);
 grid on
+
+% Unsupervised system closed loop results
+simout = sim('Sim_model_nosupervisor.mdl');
+t_ns = simout2.Time;
+insig_ns = simout2.Data(:,1);
+modelout_ns = simout2.Data(:,2);
+
+% Plotting
+figure;
+hold on;
+plot(t,insig, t, modelout);
+xlabel('Time [s]');
+ylabel('Response [-]');
+legend('Reference','Model Output','location','southeast');
+grid on
+
+print -depsc fuzzy_supervisory
+
+figure;
+hold on;
+plot(t_ns,insig_ns, t_ns, modelout_ns);
+xlabel('Time [s]');
+ylabel('Response [-]');
+legend('Reference','Model Output','location','southeast');
+grid on
+
+print -depsc non_supervised
+
