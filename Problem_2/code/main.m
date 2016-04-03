@@ -20,10 +20,7 @@ simout = sim('Sim_model.mdl');
 t = out(:,1);
 insig = out(:,2);
 modelout = out(:,3);
-upbound = [];
-lowbound = [];
-upbound(1)=insig(1)+0.5*0.1;
-lowbound(1)=insig(1)-0.5*0.1;
+
 
 
 %This code is here to plot the error bands around the signal
@@ -32,6 +29,11 @@ intime = [0 15 15.5 30 30.5 45 45.5 60 60.5 75 75.5 90 91.5 111];
 counter = 1;
 firstchange = 1;
 errorband = 0.1;
+
+upbound = [];
+lowbound = [];
+upbound(1)=insig(1)+0.5*errorband;
+lowbound(1)=insig(1)-0.5*errorband;
 
 for i = 2:length(insig)
     dif = insig(i)-insig(i-1);
