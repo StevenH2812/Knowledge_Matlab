@@ -1,5 +1,5 @@
 [System]
-Name='derivative'
+Name='derivative_1'
 Type='mamdani'
 Version=2.0
 NumInputs=1
@@ -15,10 +15,10 @@ DefuzzMethod='centroid'
 Name='input'
 Range=[0 4]
 NumMFs=4
-MF1='low':'trimf',[-1.6 0 1]
+MF1='low':'trimf',[-1.6 -0.5 1]
 MF2='high':'trimf',[2.83068783068783 4 5.6]
 MF3='med1':'gaussmf',[0.463711727892702 1.29]
-MF4='med2':'gaussmf',[0.292364425009199 2.54]
+MF4='med2':'gaussmf',[0.2924 2.5]
 
 [Output1]
 Name='Dgain'
@@ -26,7 +26,7 @@ Range=[0 0.1]
 NumMFs=3
 MF1='low':'trimf',[-0.04 0 0.04]
 MF2='med1':'gaussmf',[0.00775534160284159 0.0328]
-MF3='high':'gaussmf',[0.0130939357760806 0.0592]
+MF3='high':'gaussmf',[0.009 0.042]
 
 [Rules]
 1, 1 (1) : 1

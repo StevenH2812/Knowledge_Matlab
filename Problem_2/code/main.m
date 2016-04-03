@@ -9,8 +9,8 @@
 
 set(0,'DefaultAxesFontSize',12)
 % Include fis files for Fuzzy Controller
-proportional = readfis('proportional.fis');
-derivative = readfis('derivative.fis');
+proportional = readfis('proportional_1.fis');
+derivative = readfis('derivative_1.fis');
 
 % Fuzzy supervisory control ruleviewer will open but wait for results
 disp('Running Fuzzy Supervisory Controller ...');
@@ -62,8 +62,9 @@ xlabel('Time [s]');
 ylabel('Response [-]');
 legend('Reference','Model Output','location','southeast');
 set(gca,'XTick',0:10:120);
-set(gca,'FontSize',22);
 grid on
+
+print -depsc settling_time
 
 % Unsupervised system closed loop results
 simout = sim('Sim_model_nosupervisor.mdl');
